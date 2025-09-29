@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarrant County ZIP Code Map by TVC Office</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h2 style="text-align:center;">Tarrant County ZIP Codes by Assigned TVC Office</h2>
+    <div id="map" style="width:100%;height:90vh;"></div>
+    <script>
+        fetch('tarrant_zip_office_map.json')
+            .then(response => response.json())
+            .then(data => {
+                Plotly.newPlot('map', data.data, data.layout);
+            });
+    </script>
+</body>
+</html>
